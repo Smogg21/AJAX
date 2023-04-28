@@ -133,7 +133,6 @@
                 constelación: e.target.constelacion.value,
               },
             });
-
           }
         }
       });
@@ -144,21 +143,20 @@
           $form.nombre.value = e.target.dataset.name;
           $form.constelacion.value = e.target.dataset.constellation;
           $form.id.value = e.target.dataset.id;
-
         }
         if (e.target.matches(".delete")) {
-            let isDelete = confirm(`Estás seguro de eliminar el id ${e.target.dataset.id}?`);
+          let isDelete = confirm(
+            `Estás seguro de eliminar el id ${e.target.dataset.id}?`
+          );
 
-            if(isDelete){
-                ajax({
+          if (isDelete) {
+            ajax({
               url: `http://localhost:5555/santos/${e.target.dataset.id}`,
               method: "DELETE",
               success: (res) => location.reload(),
-              error: () => alert(err)
+              error: () => alert(err),
             });
-
-
-            }
+          }
         }
       });
     </script>
